@@ -7,5 +7,6 @@
 2. npm install express and set up
 2.1 set up express;
 2.2. add routes
+2.3 add static files and routes
 
 
