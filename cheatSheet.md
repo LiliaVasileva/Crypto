@@ -8,5 +8,11 @@
 2.1 set up express;
 2.2. add routes
 2.3 add static files and routes
+3. Add view engine - express -handlebars 
+*register with express;
+*add view folder, layouts folder and main.hbs
+* add partial template folder
+4. Add home controllers
+* add controller to routes
 
 
