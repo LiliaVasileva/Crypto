@@ -14,5 +14,8 @@
 * add partial template folder
 4. Add home controllers
 * add controller to routes
-
+5. Configure database.
+6. Authentication
+*add auth controller
+*add login page
 
