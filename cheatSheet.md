@@ -27,5 +27,18 @@
 * validate repeat password
 * check if user exists
 * use  bcrypt to hassh password
+11. Login user
+* check if user exists;
+* check if password is valid
+12. Generate  jwt token
+* OPTINAL: use  util.promisify to use async
+* generate token with payload and Secret
+* add token to cookie
+13.  Add authentication middleware
+ * add decoded token to request
+ * use authentication middleware
+14. Logout
+15. Authorization middleware;
+16. Dynamic navigation;
 
 
