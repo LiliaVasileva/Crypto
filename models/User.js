@@ -14,17 +14,8 @@ const userSchema = new mongoose.Schema({
         type: String,
         require: true
     }
-},
-{
-    virtuals: {
-        repeatPassword: {
-            set(value){
-                if (this.password !== value){
-                    throw mongoose.Error('Password mismatch!')
-                }
-            }
-        }
-    }
 });
 
 const User = mongoose.model('User', userSchema);
+
+module.exports = User;

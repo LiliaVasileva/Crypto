@@ -20,5 +20,11 @@
 * add auth controller
 * add register page
 * add login page
-7. Add user model
+7. Add user model;
+8. Add auth service;
+9. Install bcrypt and cookie-parser and configure
+10. Register user
+* validate repeat password
+* use  bcrypt to hassh password
+
 

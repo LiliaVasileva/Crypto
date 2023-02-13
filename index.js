@@ -2,6 +2,7 @@ const express = require("express");
 const routers = require('./routes');
 const handlebars = require('express-handlebars');
 const mongoose = require('mongoose');
+const cookieParser = require('cookie-parser');
 
 
 const app = express();
@@ -16,6 +17,7 @@ app.set('view engine', 'hbs');
 
 app.use('/static', express.static('public'));
 app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
 app.use(routers);
 
 // TODO database name:
