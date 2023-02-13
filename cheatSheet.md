@@ -16,6 +16,9 @@
 * add controller to routes
 5. Configure database.
 6. Authentication
-*add auth controller
-*add login page
+* fix html links in layout
+* add auth controller
+* add register page
+* add login page
+7. Add user model
 
