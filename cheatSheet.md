@@ -25,6 +25,7 @@
 9. Install bcrypt and cookie-parser and configure
 10. Register user
 * validate repeat password
+* check if user exists
 * use  bcrypt to hassh password
 
 
