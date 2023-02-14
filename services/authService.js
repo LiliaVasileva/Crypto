@@ -4,7 +4,7 @@ const jwt = require("../lib/jsonwebtoken");
 const { SECRET } = require("../constants");
 
 exports.findByUsername = (username) => User.findOne({ username });
-exports.findByEmail = (email) => User.findOne({ email });
+exports.findByEmail = (email) =>  User.findOne({ email: email });
 
 exports.register = async (username, email, password, repeatPassword) => {
   if (password !== repeatPassword) {
@@ -26,12 +26,18 @@ exports.register = async (username, email, password, repeatPassword) => {
 
   const hashedPassword = await bcrypt.hash(password, 10);
 
-  User.create({ username, email, password: hashedPassword });
+  await User.create({ username, email, password: hashedPassword });
+
+  return this.login(email, password);
+
 };
 
+
 exports.login = async (email, password) => {
+
   // User exist
-  const user = await this.findByEmail(email);
+  const user = await User.findOne({email: email});
+
 
   if (!user) {
     throw new Error("Invalid email or password!");

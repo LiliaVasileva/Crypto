@@ -40,5 +40,9 @@
 14. Logout
 15. Authorization middleware;
 16. Dynamic navigation;
+17. Error handling (use local handling);
+18. Add error notification to main layout;
+19. Login authomatically after register;
+20. Parse errors;
 
 

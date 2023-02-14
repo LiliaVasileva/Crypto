@@ -2,19 +2,30 @@ const router = require('express').Router();
 
 const authService = require('../services/authService');
 const { isAuth } = require('../middlewares/authMiddleware');
+const { getErrorMessage } = require('../utils/errorUtils');
+
 
 router.get('/register', (req, res) => {
+
   res.render('auth/register');
+
 });
 
 router.post('/register', async (req, res) => {
   const { username, email, password, repeatPassword } = req.body;
 
-  await authService.register(username, email, password, repeatPassword);
+  try {
+    const token = await authService.register(username,email,password,repeatPassword);
 
-  // TODO login authomaticaly
+    res.cookie('auth', token);
+    res.redirect('/');
 
-  res.redirect('/');
+  } catch (err) {
+    return res
+      .status(400)
+      .render('auth/register', { error: getErrorMessage(err) });
+  }
+
 });
 
 router.get('/login', (req, res) => {
@@ -24,14 +35,17 @@ router.get('/login', (req, res) => {
 router.post('/login', async (req, res) => {
   const { email, password } = req.body;
 
-  const token = await authService.login(email, password);
+  try {
+    const token = await authService.login(email, password);
 
-  res.cookie('auth', token);
-
-  res.redirect('/');
+    res.cookie('auth', token);
+    res.redirect('/');
+  } catch (error) {
+    return res.status(404).render('auth/login', { error: getErrorMessage(error) });
+  }
 });
 
-router.get('/logout',isAuth, (req, res) => {
+router.get('/logout', isAuth, (req, res) => {
   res.clearCookie('auth');
   res.redirect('/');
 });
