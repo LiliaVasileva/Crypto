@@ -22,7 +22,9 @@ exports.register = async (username, email, password, repeatPassword) => {
     throw new Error("User already exists!");
   }
 
-  //TODO: Validate password:
+  if (password.length < 4){
+    throw new Error('Password should be at least 4 symbols!')
+  }
 
   const hashedPassword = await bcrypt.hash(password, 10);
 
