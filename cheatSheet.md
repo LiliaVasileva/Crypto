@@ -1,4 +1,4 @@
-#Cheet Sheet
+#Cheat Sheet
 
 1. Initialize project  
 1.1- npm init --yes
@@ -26,12 +26,12 @@
 10. Register user
 * validate repeat password
 * check if user exists
-* use  bcrypt to hassh password
+* use  bcrypt to hash password
 11. Login user
 * check if user exists;
 * check if password is valid
 12. Generate  jwt token
-* OPTINAL: use  util.promisify to use async
+* OPTIONAL: use  util.promisify to use async
 * generate token with payload and Secret
 * add token to cookie
 13.  Add authentication middleware
@@ -42,7 +42,7 @@
 16. Dynamic navigation;
 17. Error handling (use local handling);
 18. Add error notification to main layout;
-19. Login authomatically after register;
+19. Login automatically after register;
 20. Parse errors;
 
 
