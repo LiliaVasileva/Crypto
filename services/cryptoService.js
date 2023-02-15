@@ -24,3 +24,5 @@ exports.create = (ownerId,{name, image, price, description, payment }) => Crypto
 
 
 exports. edit = (cryptoId, {name, image, price, description, payment}) => Crypto.findByIdAndUpdate(cryptoId, {name, image, price, description, payment});
+
+exports.delete = (cryptoId) => Crypto.findByIdAndDelete(cryptoId);

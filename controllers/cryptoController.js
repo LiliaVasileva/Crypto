@@ -67,8 +67,13 @@ router.post('/:cryptoId/edit', isAuth, async (req, res) => {
 
 router.get('/:cryptoId/delete', isAuth, async (req, res) => {
 
-    // TODO: delete crypto
-    res.redirect('crypto/catalog')
+    try{
+        await cryptoService.delete(req.params.cryptoId);
+
+    }catch(error){
+        res.status(404).redirect('home/404')
+    }
+    res.redirect('/crypto/catalog')
 
 });
 
@@ -76,7 +81,7 @@ router.get('/:cryptoId/delete', isAuth, async (req, res) => {
 router.get('/create', isAuth, (req, res) => {
 
 
-    res.render('/crypto/create');
+    res.render('crypto/create');
 });
 
 router.post('/create', isAuth, async (req, res) => {

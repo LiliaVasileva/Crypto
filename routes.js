@@ -9,4 +9,8 @@ router.use(homeController);
 router.use(authController);
 router.use('/crypto',cryptoController);
 
+router.all('*', (req, res) => {
+    res.render('404')
+});
+
 module.exports = router;
