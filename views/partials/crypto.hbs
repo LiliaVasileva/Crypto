@@ -1,0 +1,11 @@
+<div class="coin">
+  <div class="coin-img">
+    <img src="{{this.image}}" />
+  </div>
+  <div class="coin-info">
+    <h1>{{this.name}}</h1>
+    <p><span>Price: </span>${{priceFixed this.price}}</p>
+    <p><span>Payment: </span>{{this.payment}}</p>
+  </div>
+  <a href="/crypto/{{this._id}}/details" class="btn-details">Details</a>
+</div>

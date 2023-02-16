@@ -26,3 +26,18 @@ exports.create = (ownerId,{name, image, price, description, payment }) => Crypto
 exports. edit = (cryptoId, {name, image, price, description, payment}) => Crypto.findByIdAndUpdate(cryptoId, {name, image, price, description, payment},{runValidators: true});
 
 exports.delete = (cryptoId) => Crypto.findByIdAndDelete(cryptoId);
+
+exports.search  = async (name, payment) => {
+
+    let crypto = await this.getAll();
+
+    if (name) {
+        crypto = crypto.filter(x => x.name.toLowerCase() == name );
+    }
+    if (payment) {
+        crypto = crypto.filter(x => x.payment.toLowerCase() == payment );
+    }
+
+    return crypto
+
+}
