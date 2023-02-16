@@ -23,6 +23,6 @@ exports.buy = async (userId, cryptoId) => {
 exports.create = (ownerId,{name, image, price, description, payment }) => Crypto.create({name, image, price, description, payment, owner: ownerId });
 
 
-exports. edit = (cryptoId, {name, image, price, description, payment}) => Crypto.findByIdAndUpdate(cryptoId, {name, image, price, description, payment});
+exports. edit = (cryptoId, {name, image, price, description, payment}) => Crypto.findByIdAndUpdate(cryptoId, {name, image, price, description, payment},{runValidators: true});
 
 exports.delete = (cryptoId) => Crypto.findByIdAndDelete(cryptoId);
